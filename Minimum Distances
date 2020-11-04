@@ -1,0 +1,35 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int min(int a,int b)
+    {
+    return a<b?a:b;
+}
+int main(){
+    int size,d=9999;
+    scanf("%d\n",&size);
+    int a[1000];
+    int i;
+    for(i=0;i<size;i++)
+        scanf("%d",&a[i]);
+    int last[100000];
+    for(i=0;i<100000;i++)
+        last[i]=-1;
+    for(i=0;i<size;i++)
+        {
+        if(last[a[i]]==-1) last[a[i]]=i;
+        else
+            {
+            d=min(d,i-last[a[i]]);
+            last[a[i]]=i;
+        }
+    }
+    if(d==9999)
+        printf("-1\n");
+    else
+        printf("%d\n",d);
+}
