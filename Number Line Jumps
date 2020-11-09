@@ -6,20 +6,21 @@
 #include <limits.h>
 #include <stdbool.h>
 
-char* kangaroo(int x1, int v1, int x2, int v2) {
-    // Complete this function
-  
-if(v1>v2)
+char* kangaroo(int x1, int v1, int x2, int v2) 
 {
-    if((x2-x1)%(v1-v2) == 0)
-        return("YES");
-    else
-        return("NO");
+
+   if(v1>v2)
+   {
+        if((x2-x1)%(v1-v2) == 0)
+            return("YES");
+        else
+            return("NO");
+   }
+   else
+       return("NO");
 }
-else
-    return("NO");
-}
-int main() {
+int main() 
+{
     int x1;
     int v1;
     int x2;
