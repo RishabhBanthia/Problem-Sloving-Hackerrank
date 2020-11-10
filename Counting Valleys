@@ -10,7 +10,6 @@
 
 char* readline();
 
-// Complete the countingValleys function below.
 int countingValleys(int n, char* s) 
 {
      int c=0,v=0;
@@ -50,12 +49,14 @@ int main()
     return 0;
 }
 
-char* readline() {
+char* readline() 
+{
     size_t alloc_length = 1024;
     size_t data_length = 0;
     char* data = malloc(alloc_length);
 
-    while (true) {
+    while (true) 
+    {
         char* cursor = data + data_length;
         char* line = fgets(cursor, alloc_length - data_length, stdin);
 
@@ -73,7 +74,8 @@ char* readline() {
         alloc_length = new_length;
     }
 
-    if (data[data_length - 1] == '\n') {
+    if (data[data_length - 1] == '\n') 
+    {
         data[data_length - 1] = '\0';
     }
 
