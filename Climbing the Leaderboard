@@ -6,7 +6,8 @@
 #include <limits.h>
 #include <stdbool.h>
 
-int main() {
+int main() 
+{
     int n,i,j,t,scores_i,k;
     scanf("%i", &n);
  
@@ -20,13 +21,14 @@ int main() {
            scores[scores_i]=t; //scoring only distinct scores so that index gives the rank
            scores_i++;
        }
-     }
+    }
     n=scores_i;
     int m,rank;
     j=n-1;//will store last index or the last rank
     scanf("%i", &m);
     int *alice = malloc(sizeof(int) * m);
-    for (int alice_i = 0; alice_i < m; alice_i++) {
+    for (int alice_i = 0; alice_i < m; alice_i++) 
+    {
        scanf("%i",&alice[alice_i]);
     }
     for(i=0;i<m;i++)
