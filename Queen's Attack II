@@ -2,7 +2,7 @@
 using namespace std;
 #define te
 int n,k,qx,qy;
-// t means teta 
+
 pair<int,int> t0,t45,t90,t135,t180,t225,t270,t315;
 void generate()
 {
@@ -30,7 +30,6 @@ void handle()
     cin>>x>>y;
     if(x==qx)
     {
-        //handle t0 t180
         if(y>qy)
         {
             tie(ax,ay)=t90;
