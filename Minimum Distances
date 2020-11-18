@@ -6,10 +6,11 @@
 using namespace std;
 
 int min(int a,int b)
-    {
+{
     return a<b?a:b;
 }
-int main(){
+int main()
+{
     int size,d=9999;
     scanf("%d\n",&size);
     int a[1000];
@@ -20,10 +21,10 @@ int main(){
     for(i=0;i<100000;i++)
         last[i]=-1;
     for(i=0;i<size;i++)
-        {
+    {
         if(last[a[i]]==-1) last[a[i]]=i;
         else
-            {
+        {
             d=min(d,i-last[a[i]]);
             last[a[i]]=i;
         }
