@@ -6,9 +6,11 @@
 #include <limits.h>
 #include <stdbool.h>
 
-int howManyGames(int p, int d, int m, int s) {
+int howManyGames(int p, int d, int m, int s) 
+{
     int counter = 0, currentPrice=p;
-    while(s >= currentPrice){
+    while(s >= currentPrice)
+    {
         counter++;
         s -= currentPrice;
         currentPrice = (currentPrice - d) >= m ? currentPrice - d : m;
@@ -16,7 +18,8 @@ int howManyGames(int p, int d, int m, int s) {
     return counter;
 }
 
-int main() {
+int main() 
+{
     int p, d, m, s;
     scanf("%i %i %i %i", &p, &d, &m, &s);
     int answer = howManyGames(p, d, m, s);
