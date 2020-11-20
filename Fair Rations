@@ -5,12 +5,15 @@
 using namespace std;
 
 
-int main(){
+int main()
+{
     int N, input, oddity = 0, count = 0;
     cin >> N;
-    for(int j = 0; j < N; j++){
+    for(int j = 0; j < N; j++)
+    {
         cin >> input;
-        if(input % 2) {
+        if(input % 2) 
+        {
             count++;
             oddity = count % 2? oddity - j : oddity + j;
         }
