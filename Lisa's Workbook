@@ -6,33 +6,40 @@
 using namespace std;
 
 
-int main() {
+int main() 
+{
    int N,K,t;
 cin>>N>>K;
 int p[N];
-for(int i=0;i<N;i++){
+for(int i=0;i<N;i++)
+{
     cin>>t;
     p[i]=t;
 }
-int count=0,pi=0,pf=0,page=0,temp;  //pi,pf are intial problem ,final problem for a page
- for(int i=0;i<N;i++){
+int count=0,pi=0,pf=0,page=0,temp;  
+ for(int i=0;i<N;i++)
+ {
      temp=0;
-    while(p[i]>0){            
+    while(p[i]>0)
+    {            
         page++;            
-        if(p[i]/K){                
+        if(p[i]/K)
+        {                
             pf=K*(temp+1);
-        }else{                
+        }
+        else
+        {                
             pf=p[i]+K*(temp);
         }
         pi=temp*K+1;  
-        if(page>=pi && page<=pf){
+        if(page>=pi && page<=pf)
+        {
             count++;
         }            
         p[i]=p[i]-K;
         temp++;
     }         
  }    
-cout<<count;
-    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+cout<<count;   
     return 0;
 }
