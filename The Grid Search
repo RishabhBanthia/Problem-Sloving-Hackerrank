@@ -35,17 +35,19 @@ if(G[j][k]==P[0][0])
     for(int pc=0;pc<c;pc++)
     {   
 
-        if(G[j+pr][k+pc]==P[pr][pc]){
+        if(G[j+pr][k+pc]==P[pr][pc])
+        {
             if(pr==r-1&&pc==c-1)
                 final=1;
             flag=1;
             }
-        else{   
-        flag=0;
-        break;
+            else
+            {   
+               flag=0;
+               break;
+            }
         }
-    }
-}
+     }
 }
 }
 if(final)
