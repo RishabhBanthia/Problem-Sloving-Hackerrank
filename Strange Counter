@@ -5,10 +5,8 @@ using namespace std;
 
 long long n;
 
-int main(){
-
-
-
+int main()\
+{
     cin >> n;
     long long P = 3;
     while (n > P)
