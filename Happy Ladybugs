@@ -2,14 +2,16 @@
 #include <iostream>
 #include <algorithm>
 
-int main(void) {
+int main(void) 
+{
 
     int g; std::cin >> g;
     
     std::string b;
     int n;
     
-    while(g--) {
+    while(g--) 
+    {
         
         std::cin >> n;
         std::cin >> b;
@@ -19,14 +21,17 @@ int main(void) {
             if (c == '_')
                 underscore_count++;
         
-        if (underscore_count == n) {
+        if (underscore_count == n) 
+        {
             std::cout << "YES\n";
             continue;
         }
         
         std::vector<int> color_counts(26, 0);
-        for (auto& c : b) {
-            if (c <= 'Z' && c >= 'A') {
+        for (auto& c : b) 
+        {
+            if (c <= 'Z' && c >= 'A') 
+            {
                 color_counts[c - 'A']++;
             }
         }
