@@ -3,19 +3,23 @@
 #include <algorithm>
 #include <utility>
 
-struct Plus {
+struct Plus 
+{
     int center_row, center_col, stretch, area;
 };
 
-int main() {
+int main() 
+{
     int n,m;
     std::cin >> n >> m;
     
     std::vector< std::vector<bool> > grid(n, std::vector<bool>(m));
     
     char tmp;
-    for (auto& row : grid) {
-        for (auto el : row) {
+    for (auto& row : grid) 
+    {
+        for (auto el : row) 
+        {
             std::cin >> tmp;
             el = tmp == 'G';
         }
@@ -24,8 +28,10 @@ int main() {
     std::vector<Plus> valid_areas;
     std::vector<int> arr;
     int i,j,up,down,right,left, tmp_i,tmp_j, max_stretch;
-    for (i = 1; i < n-1; i++) {
-        for (j = 1; j < m-1; j++) {
+    for (i = 1; i < n-1; i++) 
+    {
+        for (j = 1; j < m-1; j++) 
+        {
             if (!grid[i][j]) continue;
             
             up = down = right = left = 0;
@@ -48,8 +54,10 @@ int main() {
             
             arr = {up,down,left,right};
             
-            for (max_stretch = *std::min_element(arr.begin(),arr.end()); max_stretch >= 0; max_stretch--) {
-                valid_areas.push_back({
+            for (max_stretch = *std::min_element(arr.begin(),arr.end()); max_stretch >= 0; max_stretch--) 
+            {
+                valid_areas.push_back
+                ({
                     i,j,max_stretch,max_stretch*4+1
                 });
             }
@@ -62,11 +70,13 @@ int main() {
 
     int s = valid_areas.size();
     std::vector<int> results;
-    for (i = 0; i < s; i++) {
+    for (i = 0; i < s; i++) 
+    {
         
         a = valid_areas[i];
 
-        for (j = i+1; j < s; j++) {
+        for (j = i+1; j < s; j++) 
+        {
 
             b = valid_areas[j];
                         
@@ -77,64 +87,102 @@ int main() {
             col = b.center_col < a.center_col;
             acol = b.center_col > a.center_col;
             
-            if (row) {
-                if (col) {
+            if (row) 
+            {
+                if (col) 
+                {
                     if ((b.stretch + b.center_row >= a.center_row && a.center_col - a.stretch <= b.center_col)
-                        || (b.center_col + b.stretch >= a.center_col && a.center_row - a.stretch <= b.center_row)) {
+                        || (b.center_col + b.stretch >= a.center_col && a.center_row - a.stretch <= b.center_row)) 
+                        {
                         continue;
-                    } else {
+                    } 
+                    else 
+                    {
                         results.push_back(a.area * b.area);
                         break;
                     }
-                } else if (acol) {
+                } 
+                else if (acol) 
+                {
                     if ((b.stretch + b.center_row >= a.center_row && a.center_col + a.stretch >= b.center_col)
-                        || (b.center_col - b.stretch <= a.center_col && a.center_row - a.stretch <= b.center_row)) {
+                        || (b.center_col - b.stretch <= a.center_col && a.center_row - a.stretch <= b.center_row)) 
+                        {
                         continue;
-                    } else {
+                    } 
+                    else 
+                    {
                         results.push_back(a.area * b.area);
                         break;
                     }
-                } else {
-                    if (b.stretch + b.center_col >= a.center_col - a.stretch) {
+                } 
+                else 
+                {
+                    if (b.stretch + b.center_col >= a.center_col - a.stretch) 
+                    {
                         continue;
-                    } else {
+                    } 
+                    else 
+                    {
                         results.push_back(a.area * b.area);
                         break;
                     }
                 }
-            } else if (arow) {
-                if (col) {
+            } 
+            else if (arow) 
+            {
+                if (col) 
+                {
                     if ((b.center_row - b.stretch <= a.center_row && a.center_col - a.stretch <= b.center_col)
-                        || (b.center_col + b.stretch >= a.center_col && a.center_row + a.stretch >= b.center_row)) {
+                        || (b.center_col + b.stretch >= a.center_col && a.center_row + a.stretch >= b.center_row)) 
+                        {
                         continue;
-                    } else {
+                    } 
+                    else 
+                    {
                         results.push_back(a.area * b.area);
                         break;
                     }
-                } else if (acol) {
+                } 
+                else if (acol) 
+                {
                     if ((b.center_row - b.stretch <= a.center_row && a.center_col + a.stretch >= b.center_col)
-                        || (b.center_col - b.stretch <= a.center_col && a.center_row + a.stretch >= b.center_row)) {
+                        || (b.center_col - b.stretch <= a.center_col && a.center_row + a.stretch >= b.center_row)) 
+                        {
                         continue;
-                    } else {
+                    } 
+                    else 
+                    {
                         results.push_back(a.area * b.area);
                         break;
                     }
-                } else {
-                    if (b.center_col - b.stretch <= a.center_col + a.stretch) {
+                } 
+                else 
+                {
+                    if (b.center_col - b.stretch <= a.center_col + a.stretch) 
+                    {
                         continue;
-                    } else {
+                    } 
+                    else 
+                    {
                         results.push_back(a.area * b.area);
                         break;
                     }
                 }
-            } else {
-                if (col) {
-                    if (b.stretch + b.center_col < a.center_col - a.stretch) {
+            } 
+            else 
+            {
+                if (col) 
+                {
+                    if (b.stretch + b.center_col < a.center_col - a.stretch) 
+                    {
                         results.push_back(a.area * b.area);
                         break;
                     }
-                } else if (acol) {
-                    if (b.center_col - b.stretch > a.center_col + a.stretch) {
+                } 
+                else if (acol) 
+                {
+                    if (b.center_col - b.stretch > a.center_col + a.stretch) 
+                    {
                         results.push_back(a.area * b.area);
                         break;
                     }
