@@ -7,15 +7,18 @@
 using namespace std;
  
  
-int main() { 
+int main() 
+{ 
     int t;
     cin>>t;
-    while(t--){
+    while(t--)
+    {
         int n,k;
         cin>>n>>k;
         int a[n],b[n];
         memset(b,0,sizeof(b));
-        for(int i=1;i<=n;i++){
+        for(int i=1;i<=n;i++)
+        {
             a[i]=i;
         }
         int flag=0;
@@ -24,17 +27,20 @@ int main() {
             printf("\n");continue;
         }
        for(int i=1;i<=n;i++){
-           if(i+k<=n&&a[i]==abs(a[i+k]-k)&&b[i]==0) {
+           if(i+k<=n&&a[i]==abs(a[i+k]-k)&&b[i]==0) 
+           {
                b[i]=a[i+k];
                b[i+k]=a[i];
            }
-           else {
+           else 
+           {
                if(b[i]==0)
                {flag=1;break;}
            }
        }
         if(flag==1) cout<<"-1"<<"\n";
-        else {
+        else 
+        {
             for(int i=1;i<=n;i++) cout<<b[i]<<" ";
             printf("\n");
         }
