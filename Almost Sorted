@@ -8,8 +8,6 @@
 #include <vector>
 #include <algorithm>
 using namespace std;
-// Sort and compare.
-// Do as you are told.
 int main()
 {
     int n;
@@ -46,6 +44,6 @@ int main()
                 printf("no\n");  
                 return 0;
             }
-        printf("yes\nreverse %d %d\n",diff[0]+1,diff[diff.size()-1]+1); //Index starts at 1!!!
+        printf("yes\nreverse %d %d\n",diff[0]+1,diff[diff.size()-1]+1);
     }
 }
