@@ -6,7 +6,8 @@
 using namespace std;
 
 
-int main() {
+int main() 
+{
     int v, n;
     cin >> v >> n;
     
@@ -14,11 +15,15 @@ int main() {
     for (int i = 0; i < n; i++)
         cin >> arr[i];
     
-    for (int i = 0; i < n; i++) {
-        if (arr[i] == v) {
+    for (int i = 0; i < n; i++) 
+    {
+        if (arr[i] == v) 
+        {
             cout << i << endl;
             return 0;
-        } else {
+        } 
+        else 
+        {
             continue;
         }
     }
