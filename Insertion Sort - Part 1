@@ -4,7 +4,8 @@
 #include <stdlib.h>
 #include <assert.h>
 
-int main(void) {
+int main(void) 
+{
    int t,i,j,x;
     scanf("%d",&t);
     long int a[t],temp;
@@ -14,7 +15,8 @@ int main(void) {
         {
          temp=a[i];
          j=i-1;
-      while((temp<a[j])&&(j>=0)){
+      while((temp<a[j])&&(j>=0))
+      {
           a[j+1]=a[j];
             j=j-1;
             for(x=0;x<t;x++)
