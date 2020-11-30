@@ -18,7 +18,6 @@ int main()
     {
 	string in;
 	getline(cin,in);
-
 	for(int i = 0; i < in.length();i++)
 	{
 		int ch = ((int)in[i]) - 97;
@@ -26,19 +25,14 @@ int main()
          {  		a[ch]++;
                     flag[ch] = true;
          }
-        
 	}
         for(int i = 0; i < 26;i++)
 	        flag[i] = false;
-   
-	
 	    curTest++;
     }
-    
     for(int i = 0 ; i <= 25;i++)
    	if(a[i] == T)
 		nCount++;
-
     cout<<nCount;
 	return 0;
 }
