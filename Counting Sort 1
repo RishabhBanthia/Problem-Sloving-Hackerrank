@@ -6,11 +6,13 @@
 
 #define TOP_OF_RANGE 100
 
-int main() {
+int main() 
+{
     int n; std::cin >> n;
     std::vector<int> counts(TOP_OF_RANGE,0);
     
-    for (int i = 0,tmp; i < n; i++) {
+    for (int i = 0,tmp; i < n; i++) 
+    {
         std::cin >> tmp;
         counts[tmp]++;
     }
