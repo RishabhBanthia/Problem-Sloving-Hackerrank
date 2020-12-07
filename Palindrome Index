@@ -12,7 +12,6 @@ bool ispalin(string str)
 	}
 	return true;
 }
-
 int main()
 {
 	int t;
