@@ -7,7 +7,8 @@ using namespace std;
 
 long long iNum = 0;
 
-void cntInv(vector<int>& a, vector<int>& b, int l, int r){
+void cntInv(vector<int>& a, vector<int>& b, int l, int r)
+{
     if(r - l < 2)
         return;
     int mid = (l + r) / 2;
@@ -16,31 +17,37 @@ void cntInv(vector<int>& a, vector<int>& b, int l, int r){
     int i = mid - 1;
     int j = r - 1;
     int k = r - 1;
-    while(i >= l && j >= mid){
+    while(i >= l && j >= mid)
+    {
         if(a[j] >= a[i])
             b[k--] = a[j--];
-        else{
+        else
+        {
             iNum += j - mid + 1;
             b[k--] = a[i--];
         }
     }
-    while(i >= l){
+    while(i >= l)
+    {
         b[k--] = a[i--];
     }
-    while(j >= mid){
+    while(j >= mid)
+    {
         b[k--] = a[j--];
     }
 }
 
-int main() {
-    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+int main() 
+{  
     int T;
     cin >> T;
-    while(T--){
+    while(T--)
+    {
         vector<int> a;
         int n;
         cin >> n;
-        for(int i = 0; i < n; ++i){
+        for(int i = 0; i < n; ++i)
+        {
             int num;
             cin >> num;
             a.push_back(num);
