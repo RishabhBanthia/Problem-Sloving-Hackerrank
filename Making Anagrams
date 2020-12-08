@@ -5,8 +5,8 @@
 #include <algorithm>
 using namespace std;
 
-// Given two strings, finds the minimum number of character deletions required to make the two strings anagrams.
-int main() {
+int main() 
+{
     char s1[10010],s2[10010];
     cin>>s1>>s2;
     int a[26]={0};
