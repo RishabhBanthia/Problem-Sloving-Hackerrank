@@ -5,9 +5,8 @@
 #include <algorithm>
 using namespace std;
 
-bool check(const string& _a, const string& _b) {
-    // O(n*m) lol no thanks
-    // more like O(n+m+52)
+bool check(const string& _a, const string& _b) 
+{
     bool arr[52] = {false};
     for(auto& a : _a)
         arr[a - 'a'] = true;
@@ -21,14 +20,15 @@ bool check(const string& _a, const string& _b) {
     return false;
 }
 
-int main() {
+int main() 
+{
     int t; cin >> t;
   
     string a, b;
-    while (t-- > 0) {
+    while (t-- > 0) 
+    {
         cin >> a >> b;
         cout << (check(a,b) ? "YES" : "NO") << endl;
     }
-
     return 0;
 }
