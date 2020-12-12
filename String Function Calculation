@@ -89,7 +89,6 @@ int main()
 	st[top++] = 0;
 	for (int i = 1; i < n + 1; i++)
 	{
-		//cout << height[i] << " ";
 		while (top != 0 && height[i] < height[st[top - 1]])
 		{
 			int val = height[st[top - 1]];
