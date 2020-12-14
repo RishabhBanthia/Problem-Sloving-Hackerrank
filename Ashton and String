@@ -76,13 +76,16 @@ namespace KoAluru
 
     bucket(a, n, k, minor);
     fill_n(sa, n, -1);
-    if (minor) {
+    if (minor) 
+    {
       REP(i, n)
         if (t[i])
           sa[--b[a[i]]] = i;
       plus_to_minus(a, sa, n, k);
       minus_to_plus(a, sa, n, k);
-    } else {
+    } 
+    else 
+    {
       sa[b[a[n-1]]++] = n-1;
       REP(i, n-1)
         if (! t[i])
@@ -110,7 +113,8 @@ namespace KoAluru
             } else if (j > 0 && (minor == t[last+j] || minor == t[p+j]))
               break;
           }
-        if (diff) {
+        if (diff) 
+        {
           name++;
           last = p;
         }
@@ -132,7 +136,8 @@ namespace KoAluru
 
     nn = 0;
     bucket(a, n, k, minor);
-    if (minor) {
+    if (minor) 
+    {
       REP(i, n)
         if (minor == t[i])
           pi[nn++] = i;
@@ -143,7 +148,9 @@ namespace KoAluru
         sa[i] = -1;
         sa[--b[a[j]]] = j;
       }
-    } else {
+    } 
+    else 
+    {
       REP(i, n)
         if (minor == t[i])
           pi[nn++] = i;
@@ -164,7 +171,8 @@ namespace KoAluru
   template<typename T>
   void main(T a[], int sa[], int b[], int n, int k)
   {
-    if (n > 0) {
+    if (n > 0) 
+    {
       KoAluru::b = b;
       t = new bool[n];
       ka(a, sa, n, k);
@@ -194,15 +202,18 @@ int sa[N], rnk[N], lcp[N];
 
 int main()
 {
-  for (int cc = ri(); cc--; ) {
+  for (int cc = ri(); cc--; ) 
+  {
     scanf("%s", a);
     i64 k = ri64()-1;
     int n = strlen(a);
     KoAluru::main(a, sa, rnk, n, 127);
     KoAluru::calc_rank_lcp(a, sa, n, rnk, lcp);
-    REP(i, n) {
+    REP(i, n) 
+    {
       i64 t = (i64(n-sa[i])*(n-sa[i]+1)-i64(lcp[i])*(lcp[i]+1))/2;
-      if (k < t) {
+      if (k < t) 
+      {
         for (int j = lcp[i]+1; j <= k; j++)
           k -= j;
         printf("%c\n", a[sa[i]+k]);
