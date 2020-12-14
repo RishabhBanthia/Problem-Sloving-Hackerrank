@@ -4,7 +4,6 @@ using namespace std;
 
 #ifndef SUFFIXARRAY_H_INCLUDED
 #define SUFFIXARRAY_H_INCLUDED
-
 #include <algorithm>
 #include <vector>
 
@@ -15,7 +14,7 @@ public:
     std::vector<int> order;
     std::vector<int> sufarr;
     std::vector<int> bucket_count, bucket_size;
-    std::vector<int> lcp; // lcp(sa[i], sa[i+1]) == sa.lcp[i]
+    std::vector<int> lcp; 
     template<class T>
     void build_sa(T S[], int N)
     {
@@ -98,7 +97,7 @@ public:
     }
 };
 
-#endif // SUFFIXARRAY_H_INCLUDED
+#endif 
 
 const int HASH_MAXN=400001;
 const int X=129;
@@ -313,7 +312,6 @@ pair<int, string> solve(string s, string t)
         else if(msuf[i]*2==ans)
             ans2=get_min(t, ans2, {{i, i+msuf[i]-1}, {i+msuf[i]-1, i}});
     }
-    // one center
     for(int i=0; i<(int)t.length(); i++)
     {
         int l=min(i+1, (int)t.length()-i);
@@ -338,7 +336,6 @@ pair<int, string> solve(string s, string t)
                 ans2=get_min(t, ans2, {{i+lo+msuf[i+lo]-1, i+lo}, {i-lo+1, i+lo+msuf[i+lo]-1}});
         }
     }
-    // two centers
     for(int i=0; i<(int)t.length()-1; i++)
     {
         int l=min(i+1, (int)t.length()-(i+1));
