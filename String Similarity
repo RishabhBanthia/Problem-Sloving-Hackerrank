@@ -14,20 +14,28 @@ long int z_func(const string &s)
     l right = 0;
     for (l k = 1; k < length; ++k)
     {
-        if (k > right) {
+        if (k > right) 
+        {
             left = right = k;
-            while (right < length && s[right] == s[right - left]) {
+            while (right < length && s[right] == s[right - left]) 
+            {
                 right ++;
             }
             Z[k] = right - left;
             right --;
-        } else {
+        } 
+        else 
+        {
             int k1 = k - left;
-            if (Z[k1] < right - k + 1) {
+            if (Z[k1] < right - k + 1) 
+            {
                 Z[k] = Z[k1];
-            } else {
+            } 
+            else 
+            {
                 left = k;
-                while (right < length && s[right] == s[right - left]) {
+                while (right < length && s[right] == s[right - left]) 
+                {
                     right ++;
                 }
                 Z[k] = right - left;
@@ -35,12 +43,10 @@ long int z_func(const string &s)
             }
         }
     }
-
     for (l i = 0; i < length; ++i)
     {
         sum += Z[i];
     }
-
     return sum;
 }
 
@@ -48,13 +54,12 @@ int main(int argc, char const *argv[])
 {
     int T;
     cin >> T;
-    while (T --) {
+    while (T --) 
+    {
         string s;
         cin >> s;
         l res = z_func(s);
-
         cout << s.length() + res << endl;
     }
-
     return 0;
 }
