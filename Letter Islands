@@ -17,13 +17,15 @@ typedef pair<int, int> pii;
 #define REP(i, n) for (int i = 0; i < (n); i++)
 #define ROF(i, a, b) for (int i = (b); --i >= (a); )
 
-struct Pos {
+struct Pos 
+{
   static int id;
   set<int> a;
   tree<pii, null_type, less<pii>, rb_tree_tag, tree_order_statistics_node_update> d;
   int countLT(int key) { return d.order_of_key(pii(key, 0)); }
   size_t size() { return a.size(); }
-  void insert(int i) {
+  void insert(int i) 
+  {
     a.insert(i);
     auto it = a.lower_bound(i);
     auto prev = it, next = it;
@@ -37,16 +39,19 @@ struct Pos {
     if (it != next && next != a.end())
       d.insert(pii{*next-*it, id++});
   }
-  void join(Pos &b) {
+  void join(Pos &b) 
+  {
     for (int x: b.a)
       insert(x);
   }
   Pos() = default;
-  Pos(Pos &&b) {
+  Pos(Pos &&b) 
+  {
     a.swap(b.a);
     d.swap(b.d);
   }
-  Pos &operator=(Pos &&b) noexcept {
+  Pos &operator=(Pos &&b) noexcept 
+  {
     a.swap(b.a);
     d.swap(b.d);
     return *this;
@@ -68,7 +73,8 @@ namespace KoAluru
     REP(i, n) b[a[i]]++;
     if (end)
       FOR(i, 1, k) b[i] += b[i-1];
-    else {
+    else 
+    {
       int s = 0;
       REP(i, k)
         s += b[i], b[i] = s-b[i];
@@ -114,7 +120,9 @@ namespace KoAluru
           sa[--b[a[i]]] = i;
       plus_to_minus(a, sa, n, k);
       minus_to_plus(a, sa, n, k);
-    } else {
+    } 
+    else 
+    {
       sa[b[a[n-1]]++] = n-1;
       REP(i, n-1)
         if (! t[i])
@@ -131,18 +139,23 @@ namespace KoAluru
       sa2 = sa+n-nn, pi = sa;
     fill_n(b, n, -1);
     REP(i, n)
-      if (sa[i] >= 0 && minor == t[sa[i]]) {
+      if (sa[i] >= 0 && minor == t[sa[i]]) 
+      {
         bool diff = last == -1;
         int p = sa[i];
         if (! diff)
-          REP(j, n) {
-            if (last+j >= n || p+j >= n || a[last+j] != a[p+j] || t[last+j] != t[p+j]) {
+          REP(j, n) 
+          {
+            if (last+j >= n || p+j >= n || a[last+j] != a[p+j] || t[last+j] != t[p+j]) 
+            {
               diff = true;
               break;
-            } else if (j > 0 && (minor == t[last+j] || minor == t[p+j]))
+            } 
+            else if (j > 0 && (minor == t[last+j] || minor == t[p+j]))
               break;
           }
-        if (diff) {
+        if (diff) 
+        {
           name++;
           last = p;
         }
@@ -164,24 +177,29 @@ namespace KoAluru
 
     nn = 0;
     bucket(a, n, k, minor);
-    if (minor) {
+    if (minor) 
+    {
       REP(i, n)
         if (minor == t[i])
           pi[nn++] = i;
       REP(i, nn)
         sa[i] = pi[sa2[i]];
-      ROF(i, 0, nn) {
+      ROF(i, 0, nn) 
+      {
         int j = sa[i];
         sa[i] = -1;
         sa[--b[a[j]]] = j;
       }
-    } else {
+    } 
+    else 
+    {
       REP(i, n)
         if (minor == t[i])
           pi[nn++] = i;
       ROF(i, 0, nn)
         sa[n-nn+i] = pi[sa2[i]];
-      REP(i, nn) {
+      REP(i, nn) 
+      {
         int j = sa[n-nn+i];
         sa[n-nn+i] = -1;
         sa[b[a[j]]++] = j;
@@ -212,32 +230,37 @@ namespace KoAluru
     int k = 0;
     lcp[0] = 0;
     FOR(i, 0, n)
-      if (rank[i]) {
+      if (rank[i]) 
+      {
         for (int j = sa[rank[i]-1]; i+k < n && j+k < n && a[i+k] == a[j+k]; k++);
         lcp[rank[i]] = k;
         k && k--;
       }
   }
 
-  void calc_child(int lcp[], int n, int child[]) {
+  void calc_child(int lcp[], int n, int child[]) 
+  {
     stack<int> st;
     st.push(0);
     int last = -1;
     fill_n(child, n, -1);
     FOR(i, 1, n) {
-      while (lcp[i] < lcp[st.top()]) {
+      while (lcp[i] < lcp[st.top()]) 
+      {
         last = st.top();
         st.pop();
         if (lcp[i] <= lcp[st.top()] && lcp[st.top()] != lcp[last])
           child[st.top()] = last;
       }
-      if (last != -1) {
+      if (last != -1) 
+      {
         child[i-1] = last;
         last = -1;
       }
       st.push(i);
     }
-    while (0 < lcp[st.top()]) {
+    while (0 < lcp[st.top()]) 
+    {
       last = st.top();
       st.pop();
       if (0 <= lcp[st.top()] && lcp[st.top()] != lcp[last])
@@ -247,10 +270,12 @@ namespace KoAluru
     while (! st.empty())
       st.pop();
     st.push(0);
-    FOR(i, 1, n) {
+    FOR(i, 1, n) 
+    {
       while (lcp[i] < lcp[st.top()])
         st.pop();
-      if (lcp[i] == lcp[st.top()]) {
+      if (lcp[i] == lcp[st.top()]) 
+      {
         child[st.top()] = i;
         st.pop();
       }
@@ -261,7 +286,8 @@ namespace KoAluru
   void top_down(int sa[], int lcp[], int child[], int l, int h, int ht, Pos &data)
   {
     int ht2;
-    if (l == h-1) {
+    if (l == h-1) 
+    {
       ht2 = n-sa[l];
       data.insert(sa[l]);
     } else {
@@ -273,7 +299,8 @@ namespace KoAluru
         if (cur.size() > data.size()) swap(cur, data);
         data.join(cur);
       }
-      for (; child[i] > i && lcp[child[i]] == lcp[i]; i = child[i]) {
+      for (; child[i] > i && lcp[child[i]] == lcp[i]; i = child[i]) 
+      {
         Pos cur;
         top_down(sa, lcp, child, i, child[i], ht2, cur);
         if (cur.size() > data.size()) swap(cur, data);
@@ -288,7 +315,8 @@ namespace KoAluru
     }
     l = ht+1;
     h = ht2+1;
-    while (l < h) {
+    while (l < h) 
+    {
       int mi = l+h >> 1;
       if (k < data.size()-data.countLT(mi+1))
         l = mi+1;
@@ -297,7 +325,8 @@ namespace KoAluru
     }
     int from = l;
     h = ht2+1;
-    while (l < h) {
+    while (l < h) 
+    {
       int mi = l+h >> 1;
       if (k <= data.size()-data.countLT(mi+1))
         l = mi+1;
