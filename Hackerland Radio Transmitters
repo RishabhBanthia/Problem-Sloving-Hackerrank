@@ -9,11 +9,8 @@
 #include <algorithm>
 using namespace std;
 
-// Greedy. Keep track of the leftmost house that is not covered,
-// and put the radio on a rightmost house which can cover the leftmost uncovered house.
-
-
-int main() {
+int main() 
+{
     int n,k;
     scanf("%d %d", &n, &k);
     int x[100000];
