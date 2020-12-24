@@ -12,8 +12,6 @@ using namespace std;
 #define PI 3.14159265
 
 map<int,bool> visited;
-
-
 void possible(int hash, vector<int> &next)
 {
     int i,j;
@@ -45,8 +43,6 @@ void possible(int hash, vector<int> &next)
         }
     }
 }
-
-
 ll bfs(int root)
 {
     ll ans = 0;
@@ -65,16 +61,10 @@ ll bfs(int root)
         current = next;
     }
 }
-
-
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(NULL);
-    //Input Method Defined
-    // freopen("input.txt", "r", stdin);
-    // freopen("output.txt", "w", stdout);
-
     int n,i;
     cin>>n;
     int hash = 0;
@@ -85,8 +75,6 @@ int main()
         t--;
         if(hash|=t<<(i<<1));
     }
-    
     visited[hash] = true;
     cout<< bfs(hash);
-
 }
