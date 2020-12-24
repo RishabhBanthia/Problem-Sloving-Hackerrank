@@ -7,7 +7,6 @@ int value[100001], n, tot, best;
 vector<vector<int> > v;
 bool visited[100001];
 int sum[100001];
-
 int dfs(int node)
 {
 	int ret = 0;
@@ -21,7 +20,6 @@ int dfs(int node)
 	}
 	return sum[node] = value[node] + ret;
 }
-
 int main()
 {
 	best = INT_MAX;
