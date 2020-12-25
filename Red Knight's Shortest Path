@@ -6,7 +6,6 @@
 #define MP make_pair
 #define REP(i,a,b) for (int i = a; i <= b; i++)
 
-
 using namespace std;
 
 typedef long long ll;
@@ -77,11 +76,8 @@ int main()
         while(!st.empty())
             cout<<s[st.top()]<<" ",st.pop();
         cout<<endl;
-
-
     }
     else
         cout<<"Impossible\n";
 	return 0;
-
 }
