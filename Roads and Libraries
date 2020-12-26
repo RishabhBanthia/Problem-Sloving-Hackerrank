@@ -18,39 +18,52 @@ ll color[100010];
 ll cost;
 ll n, m, clib, cpath;
  
-void dfs(ll index, ll flag = 0LL){
-  if(flag == 1LL){
+void dfs(ll index, ll flag = 0LL)
+{
+  if(flag == 1LL)
+  {
     cost += clib;
-  }else
+  }
+  else
     cost += cpath;
   color[index] = 1;
-  for(int i = 0 ; i < adj[index].size() ; i ++){
+  for(int i = 0 ; i < adj[index].size() ; i ++)
+  {
     ll vertex = adj[index][i];
-    if(!color[vertex]){
+    if(!color[vertex])
+    {
       dfs(vertex);
     }
   }
 }
  
-void solve(){
+void solve()
+{
     ll t;
     cin >> t;
-    while ( t-- ){
+    while ( t-- )
+    {
         adj.clear();
         cin >> n >> m >> clib >> cpath;
-        for(int  i = 0 ; i < m ; i ++){
+        for(int  i = 0 ; i < m ; i ++)
+        {
           ll u,v;
           cin >> u >> v;
           adj[u].pb(v);
           adj[v].pb(u);
         }
-        if(clib <= cpath){
+        if(clib <= cpath)
+        {
           cout << n * clib << endl;
-        }else{
+        }
+        else
+        {
           memset(color, 0LL, sizeof(color));
           cost = 0;
-          for(int i = 1 ;i <= n ; i ++){
-            if(color[i] == 0){
+          for(int i = 1 ;i <= n ; i ++)
+          {
+            if(color[i] == 0)
+            {
               dfs(i,1LL);
             }
           }
@@ -59,7 +72,8 @@ void solve(){
     }
 }
   
-int main(){
+int main()
+{
 std::ios::sync_with_stdio(0);
 solve();
 }
