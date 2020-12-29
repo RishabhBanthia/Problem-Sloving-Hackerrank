@@ -4,6 +4,7 @@
 using namespace std;
 const int N=104;
 const int INF=100000000;
+
 int main()
 {
 	int t;
@@ -49,7 +50,9 @@ int main()
 				{
 					mark[x]=true;
 					if(graph[x]==0)
+					{
 						q.push(make_pair(x,p.second+1));
+					}
 					else
 					{
 						x=graph[x];
@@ -61,9 +64,12 @@ int main()
  
 		}
 		if(ans==INF)
+		{
 			cout<<-1<<endl;
+		}
 		else
+		{
 			cout<<ans<<endl;
- 
+		}
 	}
 }
