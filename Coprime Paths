@@ -43,7 +43,6 @@ int getG(int p)
   }
   return gs[p];
 }
-
 void writeFactors()
 {
   for (int i = 1; i <= n; ++i)
@@ -89,7 +88,6 @@ void writeFactors()
     vs[i].gc = s;
   }
 }
-
 void writeParents()
 {
   static int nexts[nMax + 1];
@@ -143,7 +141,6 @@ void writeParents()
     depth++;
   }
 }
-
 #define run(i) \
   {\
     sum += vc;\
@@ -171,7 +168,6 @@ void writeParents()
     vc++;\
     i = vs[i].parent;\
   }
-    
 void solveQuery()
 {
   int i, j;
@@ -202,7 +198,6 @@ void solveQuery()
     cs[s] = 0;
   }
 }
-
 void print()
 {
   for (int i = 1; i <= n; ++i)
@@ -210,14 +205,12 @@ void print()
     printf("%d: parent=%d, depth=%d, %d, %d, %d\n", i, vs[i].parent, depths[i], vs[i].gs[0], vs[i].gs[1], vs[i].gs[2]);
   }
 }
-
 int main()
 {
   int qc;
   scanf("%d %d", &n, &qc);
   writeFactors();
   writeParents();
-  //print();
   for (int q = 0; q < qc; ++q)
   {
     solveQuery();
