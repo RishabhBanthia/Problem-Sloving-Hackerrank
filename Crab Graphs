@@ -10,21 +10,17 @@
 #include <algorithm>
 using namespace std;
 
-// We can solve this problem using Network Flow. We split a node X to two nodes X1 and X2, and if a and b are connected in original graph,
-// we connect a1 to b2, and a2 to b1 in the new graph (so we can guarantee the head is also counted), with capacity 1. 
-// All X2 will connect to the sink t with capacity 1, and all X1 are connected by source s with capacity T. Run a max flow and you get the answer.
-// Here I'm using Dinic Algorithm.
-
-struct edge {
+struct edge 
+{
     int a;
     int b;
     int c;
     edge() {}
     edge(int a, int b, int c): a(a), b(b), c(c) {}
-}es[42000]; // Edge set. How many edges at most
+}es[42000];
 const int MAX = 0x3fffffff;
 int estop;
-vector <int> adj[210]; // Adjacency list
+vector <int> adj[210];
 int cur[210];
 int dis[210];
 int n,m;
@@ -37,8 +33,7 @@ void addedge (int u, int v, int c)
     adj[v].push_back(estop);
     es[estop++] = edge(v,u,0);
 }
-
-bool BFS() // Returns true if t is reachable
+bool BFS()
 {
     int q[210];
     memset(dis,-1,sizeof(dis));
@@ -61,7 +56,6 @@ bool BFS() // Returns true if t is reachable
     }
     return (dis[t] != -1);
 }
-
 int dinic(int x, int maxflow)
 {
     if (x==t)
@@ -84,7 +78,6 @@ int dinic(int x, int maxflow)
     }
     return 0;
 }
-
 int dinic_main()
 {
     int F = 0;
