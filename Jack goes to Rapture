@@ -10,10 +10,6 @@
 #include <algorithm>
 using namespace std;
 
-// This problem is very interesting. The problem is not difficult, but it really costs me half hour to think of a solution.
-// Clearly, the question is asking to find a path, such that the max weight edge in the path is minimum.
-// We could binary search the answer, and check if we could reach the destination only using the edges less or equal to the value.
-
 vector<pair <int,int> > adj[50001];
 int main()
 {
@@ -24,14 +20,13 @@ int main()
     {
         int a,b,c;
         scanf("%d %d %d",&a,&b,&c);
-        adj[a].push_back(make_pair(b,c)); // Adjacent matrix
+        adj[a].push_back(make_pair(b,c)); 
         adj[b].push_back(make_pair(a,c)); 
     }
     int be = 1, ed = 10000002;
     while (be <= ed)
     {
         int mid = (be + ed) / 2;
-        // Check connectivity, using BFS
         int q[50001], visited[50001];
         int qbe = 0, qed = 1;
         q[0] = 1;
@@ -58,6 +53,5 @@ int main()
     if (be > 10000000)
         printf("NO PATH EXISTS\n");
     else
-        printf("%d\n",be);
-    
+        printf("%d\n",be);  
 }
