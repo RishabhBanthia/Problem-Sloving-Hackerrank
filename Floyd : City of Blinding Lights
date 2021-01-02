@@ -12,9 +12,13 @@ int main()
 		for(j=1;j<=n;j++)
 		{
 			if(i==j)
+			{
 				d[i][j]=0;
+			}
 			else
+			{
 				d[i][j]=INT_MAX;
+			}
 		}
 	}
 	for(i=0;i<m;i++)
@@ -35,15 +39,18 @@ int main()
 			}
 		}
 	}
-	
 	cin>>q;
 	while(q--)
 	{
 		cin>>a>>b;
 		if(d[a][b]==99999)
+		{
 			cout<<"-1"<<endl;
+		}
 		else
+		{
 			cout<<d[a][b]<<endl;
+		}
 	}
 	return 0;
 }
