@@ -12,7 +12,6 @@ int ri()
   scanf("%d", &x);
   return x;
 }
-
 const int N = 10000, MOD = 1000000000;
 vector<int> e[N], ee[N];
 bool vis0[N], vis1[N], vis[N];
@@ -25,7 +24,6 @@ void dfs(vector<int> e[], bool vis[], int u)
     if (! vis[v])
       dfs(e, vis, v);
 }
-
 int postorder(int u)
 {
   if (~ memo[u])
@@ -34,9 +32,11 @@ int postorder(int u)
   vis[u] = true;
   if (u == n-1)
     ans = 1;
-  else {
+  else 
+  {
     for (int v: e[u])
-      if (vis0[v] && vis1[v]) {
+      if (vis0[v] && vis1[v]) 
+      {
         if (vis[v])
           throw 0;
         ans = (ans+postorder(v))%MOD;
@@ -45,12 +45,12 @@ int postorder(int u)
   vis[u] = false;
   return memo[u] = ans;
 }
-
 int main()
 {
   n = ri();
   int m = ri();
-  REP(i, m) {
+  REP(i, m) 
+  {
     int u = ri()-1, v = ri()-1;
     e[u].pb(v);
     ee[v].pb(u);
@@ -58,9 +58,12 @@ int main()
   dfs(e, vis0, 0);
   dfs(ee, vis1, n-1);
   fill_n(memo, n, -1);
-  try {
+  try 
+  {
     printf("%d\n", postorder(0));
-  } catch (...) {
+  } 
+  catch (...) 
+  {
     puts("INFINITE PATHS");
   }
 }
