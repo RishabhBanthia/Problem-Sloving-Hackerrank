@@ -10,7 +10,6 @@
 #include <algorithm>
 using namespace std;
 
-// We use BFS here. Since the graph is huge but sparse, we can add our custom exit condition.
 map<int,int> adj[200001];
 int visited[200001],q[200001],dis[200001];
 int main()
@@ -45,7 +44,6 @@ int main()
                     q[ed++] = i;
                     visited[i] = 1;
                     dis[i] = dis[q[be]] + 1;
-                    //printf("Dis of %d is %d \n",i,dis[i]);
                 }
             if (ed>=n)
                 break;
