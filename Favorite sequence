@@ -32,7 +32,9 @@ int main()
 	for (int i = 1; i <= maxval; i++)
 	{
 		if (indeg[i] == 0 && !gr[i].empty())
+		{
 			pq.push(i);
+		}
 	}
 	while (!pq.empty())
 	{
@@ -45,7 +47,9 @@ int main()
 			int node = gr[next][i];
 			indeg[node]--;
 			if (indeg[node] == 0)
+			{
 				pq.push(node);
+			}
 		}
 	}
 	printf("\n");
