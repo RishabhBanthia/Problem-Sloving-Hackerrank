@@ -6,7 +6,6 @@ int nRow, nCol, k;
 
 int board[200][200];
 int dist[200][200][4][4];
-
 const int dx[4] = { -1, 1, 0, 0 };
 const int dy[4] = { 0, 0, -1, 1 };
 
@@ -14,25 +13,20 @@ bool valid(int row, int col)
 {
 	return 0 <= row && row < nRow && 0 <= col && col < nCol && board[row][col] == 1;
 }
-
 struct Node
 {
 	int row, col, len;
 	Node() {};
 	Node(int r, int c, int l) : row(r), col(c), len(l) {};
 };
-
 Node q[50000];
 bool visited[200][200];
-
 void bfs(Node t, Node cc, int ret[])
 {
 	memset(visited, false, sizeof(visited));
-
 	int head = 0, tail = 0;
 	q[tail++] = t;
 	visited[t.row][t.col] = true;
-
 	for (int i = 0; i < 4; i++)
 	{
 		ret[i] = -2;
@@ -41,14 +35,11 @@ void bfs(Node t, Node cc, int ret[])
 		if (t.row == nx && t.col == ny) ret[i] = 0;
 		if (!valid(nx, ny)) ret[i] = -1;
 	}
-
 	while (head < tail)
 	{
 		Node tmp = q[head++];
-
 		if (tmp.len == k - 1)
 			break;
-
 		for (int i = 0; i < 4; i++)
 		{
 			int nr = tmp.row + dx[i];
@@ -77,7 +68,6 @@ void bfs(Node t, Node cc, int ret[])
 		if (ret[i] == -2)
 			ret[i] = k;
 }
-
 void initdist()
 {
 	memset(dist, -1, sizeof(dist));
@@ -94,7 +84,6 @@ void initdist()
 					bfs(t, cc, dist[i][j][d]);
 				}
 }
-
 int dist2[200][200][4];
 int cnt[200][200][4];
 
@@ -104,7 +93,6 @@ struct Node2
 	Node2() {};
 	Node2(int r, int c, int d) : row(r), col(c), dir(d) {};
 };
-
 Node2 swapBlocks(Node2 cc)
 {
 	int cc_nr = cc.row + dx[cc.dir];
@@ -115,15 +103,12 @@ Node2 swapBlocks(Node2 cc)
 	Node2 ret(cc_nr, cc_nc, ndir);
 	return ret;
 }
-
 const int MAXLEN = 500000;
 Node2 q2[MAXLEN];
-
 void spfa(Node cc, int start[4], Node target)
 {
 	memset(dist2, -1, sizeof(dist2));
 	memset(cnt, 0, sizeof(cnt));
-
 	int head = 0, tail = 0;
 	for (int i = 0; i < 4; i++)
 		if (start[i] != -1)
@@ -138,14 +123,12 @@ void spfa(Node cc, int start[4], Node target)
 				q2[tail++] = tmp;
 			}
 		}
-
 	while (head != tail)
 	{
 		Node2 tmp = q2[head];
 		head = (head + 1) % MAXLEN;
 		int tr = tmp.row, tc = tmp.col, td = tmp.dir;
 		cnt[tr][tc][td]--;
-
 		for (int i = 0; i < 4; i++)
 		{
 			if (i == td) continue;
@@ -161,7 +144,6 @@ void spfa(Node cc, int start[4], Node target)
 				}
 			}
 		}
-
 		Node2 swapped = swapBlocks(tmp);
 		int r = swapped.row, c = swapped.col, d = swapped.dir;
 		if (dist2[r][c][d] == -1 || (dist2[r][c][d] > dist2[tr][tc][td] + 1))
@@ -175,7 +157,6 @@ void spfa(Node cc, int start[4], Node target)
 			}
 		}
 	}
-
 	int ret = -1;
 	for (int i = 0; i < 4; i++)
 	{
@@ -183,10 +164,8 @@ void spfa(Node cc, int start[4], Node target)
 		if (val != -1 && (ret == -1 || val < ret))
 			ret = val;
 	}
-
 	printf("%d\n", ret);
 }
-
 int main()
 {
 	int q;
@@ -206,7 +185,6 @@ int main()
 		Node target(tx, ty, 0);
 		int ret[4];
 		bfs(t, cc, ret);
-
 		spfa(cc, ret, target);
 	}
 	return 0;
