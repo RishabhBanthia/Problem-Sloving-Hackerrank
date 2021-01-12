@@ -15,7 +15,6 @@ bool vis[N];
 long h[V], src, sink;
 vector<pll> adj[N];
 struct Edge { long v, c, w; Edge *next, *dual; } *e[V], pool[N*2+M << 1], *allo;
-
 void insert(long u, long v, long c, long w)
 {
   allo->v = v; allo->c = c; allo->w = w; allo->next = e[u]; e[u] = allo++;
@@ -23,7 +22,6 @@ void insert(long u, long v, long c, long w)
   e[u]->dual = e[v];
   e[v]->dual = e[u];
 }
-
 bool relabel()
 {
   long d = LONG_MAX;
@@ -38,14 +36,14 @@ bool relabel()
       h[u] += d;
   return true;
 }
-
 long augment(long u, long f)
 {
   if (u == sink) return f;
   vis[u] = true;
   long old = f;
   for (Edge* it = e[u]; it; it = it->next)
-    if (it->c > 0 && ! vis[it->v] && h[u]-h[it->v] == it->w) {
+    if (it->c > 0 && ! vis[it->v] && h[u]-h[it->v] == it->w) 
+    {
       long ff = augment(it->v, min(f, it->c));
       it->c -= ff;
       it->dual->c += ff;
@@ -53,28 +51,29 @@ long augment(long u, long f)
     }
   return old-f;
 }
-
 void dfs(long u, long p)
 {
   for (auto e: adj[u])
-    if (e.first != p) {
+    if (e.first != p) 
+    {
       insert(u, e.first, e.second, 0);
       dfs(e.first, u);
     }
 }
-
 int main()
 {
   ios_base::sync_with_stdio(0);
   long cases, n, m, u, v, w, ans;
-  for (cin >> cases; cases--; ) {
+  for (cin >> cases; cases--; ) 
+  {
     allo = pool;
     cin >> n >> m;
     src = n, sink = n+1;
     REP(i, n)
       adj[i].clear();
     fill_n(e, sink+1, nullptr);
-    REP(i, n-1) {
+    REP(i, n-1) 
+    {
       cin >> u >> v >> w;
       u--, v--;
       adj[u].emplace_back(v, w);
@@ -82,7 +81,8 @@ int main()
     }
     ans = 0;
     fill_n(h, n, 0);
-    REP(i, m) {
+    REP(i, m) 
+    {
       cin >> u >> v >> w;
       u--, v--;
       insert(u, v, 1, w);
