@@ -5,8 +5,6 @@
 #include <algorithm>
 using namespace std;
 
-
-// Algorithm: Sort the toys by price, buy the cheapest toy each time until you run out of money
 int main() 
 {
     long long n, k; cin >> n >> k;
@@ -16,14 +14,13 @@ int main()
         int p; cin >> p;
         prices.push_back(p);
     }
-    
     sort(prices.begin(), prices.end());
     int count = 0;
-    while(k - prices[count] >= 0 && count < n) {
+    while(k - prices[count] >= 0 && count < n) 
+    {
         k -= prices[count];
         count++;
     }
     cout << count << endl;
-    
     return 0;
 }
