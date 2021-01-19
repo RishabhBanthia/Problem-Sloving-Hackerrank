@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
-    
-using namespace std;
-    
+using namespace std; 
+
 int main() 
 {
     long long int i,n,k,min=999999999,temp;
@@ -17,6 +16,5 @@ if(temp < min)
 min = temp;
 }
 cout << min << endl;
-    
 return 0;
 }
