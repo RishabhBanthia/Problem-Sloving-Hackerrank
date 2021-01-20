@@ -9,16 +9,9 @@
 #include <algorithm>
 using namespace std;
 
-// We can sort A ascendingly and B descendingly, and check if A[i]+b[i] >= k for all i's.
-// Proof: (In the proof, A and B always means the array after permutation.)
-// We know the order of A doesn't matter, because we can always permute B.
-// So we may as well assume A is sorted ascendingly. 
-// For any i < j, we have a_i < a_j. 
-// If we also have b_i < b_j, and a_i + b_i >= k, a_j + b_j >= k both hold,
-// Then we can safely swap b_i and b_j, because a_i + b_j > a_i + b_i >= k, and a_j + b_i > a_i + b_i >= k.
-// In other words, sorting B in descending order can no worse than any other permutation.
 int A[1000],B[1000];
-int main() {
+int main() 
+{
     int tt,n,k;
     scanf("%d",&tt);
     while(tt--)
