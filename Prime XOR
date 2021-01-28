@@ -54,8 +54,12 @@ while(T)
 	}
 	long long ans=0;
 	for(int j=0;j<=max_xor;j++)
+	{
 		if(is_prime[j])
+		{
 			ans = (ans + f[1-flag][j])%mo;
+		}
+	}
 	printf("%lld\n",ans);
 }
     return 0;
