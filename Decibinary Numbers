@@ -3,7 +3,6 @@
 
 long long int dp[25][300005] = {};
 long long int nm[300005] = {};
-
 long long int cnt(int d, int s)
 {
  if (d == -1 && s == 0)
@@ -18,7 +17,6 @@ long long int cnt(int d, int s)
  }
  return dp[d][s];
 }
-
 int main()
 {
  std::ios_base::sync_with_stdio(false);
@@ -33,7 +31,6 @@ int main()
   nm[i] += nm[i-1];
  int q, lo, hi, ans;
  long long int x;
-
  std::cin >> q;
  while (q--)
  {
@@ -55,16 +52,13 @@ int main()
     else
      lo = mid+1;
    }
-
    long long int g = x-nm[ans-1];
    long long int s = ans;
    long long int val;
    int d;
-
    for (int i = -1; cnt(i, s) < g; i++)
     d = i;
    d++;
-
    while (d >= 0)
    {
     val = 0;
