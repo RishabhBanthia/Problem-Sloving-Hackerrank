@@ -3,10 +3,13 @@
 #include <cstring>
 #include <algorithm>
 #include <climits>
+
 using namespace std;
 const int maxn = 100002;
+
 int n,m;
 long long d[maxn],sum[maxn];
+
 int main()
 {
     scanf("%d%d",&n,&m);
