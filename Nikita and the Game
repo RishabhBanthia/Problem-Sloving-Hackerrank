@@ -2,7 +2,6 @@
 #include <vector>
 
 #define LOG(x) std::cout << x << std::endl;
-
 int middle(const std::vector<uint64_t>& data, std::vector<uint64_t>& sums, int from, int to)
 {
     auto tmp = sums[from] - data[from];
@@ -20,7 +19,6 @@ int middle(const std::vector<uint64_t>& data, std::vector<uint64_t>& sums, int f
     }
     return position < size && sums[position] - tmp == half ? position : -1;
 }
-
 int max(const std::vector<uint64_t>& data, std::vector<uint64_t>& sums, int from, int to)
 {
     if (from == to)
@@ -39,7 +37,6 @@ int max(const std::vector<uint64_t>& data, std::vector<uint64_t>& sums, int from
         return 1 + (left > right ? left : right);
     }
 }
-
 int main(int argc, char **argv)
 {
     std::ios::sync_with_stdio(false);
