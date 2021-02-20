@@ -1,8 +1,3 @@
-//coin-on-the-table.cpp
-//Coin on the Table
-//Algorithms - Search
-//Author: derekhh
-
 #include<iostream>
 #include<cstring>
 using namespace std;
@@ -16,11 +11,9 @@ void update(int row, int col, int time, int val)
 	if (row < 0 || row >= n) return;
 	if (col < 0 || col >= m) return;
 	if (time > k) return;
-
 	if (val < best[row][col][time] || best[row][col][time] == -1)
 	{
 		best[row][col][time] = val;
-
 		if (map[row][col] != '*')
 		{
 			update(row, col + 1, time + 1, val + (map[row][col] != 'R'));
@@ -34,7 +27,6 @@ void update(int row, int col, int time, int val)
 		}
 	}
 }
-
 int main()
 {
 	cin >> n >> m >> k;
