@@ -8,9 +8,7 @@
 #include <vector>
 #include <algorithm>
 using namespace std;
-// Dynamic Programming. We can use dp[i][j] = k to denote the case that ...
-// first row has i cells, and second line has j cells, is feasible (k=1) or not (k=0).
-// When we encounter a black cell, we ignore it. For example, if row2[j] is black, dp[i][j] = dp[i][j-1].
+
 int dp[11][11];
 char row1[12],row2[12];
 int getdp(int i, int j)
@@ -45,7 +43,8 @@ int getdp(int i, int j)
     }
     return dp[i][j];
 }
-int main() {
+int main() 
+{
     int tt;
     scanf("%d",&tt);
     while (tt--)
