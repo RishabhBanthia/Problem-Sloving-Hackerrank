@@ -1,10 +1,8 @@
 #include<iostream>
 using namespace std;
-
 const int MAXN = 1900, MAXH = 1900;
 
 int f[MAXN][MAXH + 1], cnt[MAXN][MAXH + 1], g[MAXH + 1];
-
 int main()
 {
 	int n, h, hl;
