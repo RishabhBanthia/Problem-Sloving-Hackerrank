@@ -2,14 +2,13 @@
 #include <string.h>
 #include <math.h>
 #include <stdlib.h>
-
 #define md 1000000007
 
 char cv[1001], fv[1000], lv[1000], gv[1000];
 unsigned int mv[1000 * 1000 * 4];
 int m;
-
-void readInput() {
+void readInput() 
+{
     int i, j, k, l, n;
     char *s;
     for (i = 0; i < 1000; ++i)
@@ -35,12 +34,12 @@ void readInput() {
     }
     m = strlen(cv);
 }
-
-int ix(int i, int j, int oi, int oj) {
+int ix(int i, int j, int oi, int oj) 
+{
     return (i * m * 4) + (j * 4) + (oi * 2) + oj;
 }
-
-unsigned int f(int i, int j, int oi, int oj) {
+unsigned int f(int i, int j, int oi, int oj) 
+{
     if (i == j)
     {
         return (oi || oj) ? 2 : 1;
@@ -56,8 +55,8 @@ unsigned int f(int i, int j, int oi, int oj) {
     }
     return mv[ix(i, j, oi, oj)];
 }
-
-void run() {
+void run() 
+{
     int l, i, j, p;
     int il, jf, oi, oj, oi1, oj1, b1, b2;
     unsigned int c;
@@ -103,11 +102,12 @@ void run() {
     }
     printf("%u\n", mv[ix(0, m - 1, 0, 0)]);
 }
-
-int main() {
+int main() 
+{
     int q, i;
     scanf("%d", &q);
-    for(i = 0; i < q; ++i) {
+    for(i = 0; i < q; ++i) 
+    {
         run();
     }
     return 0;
