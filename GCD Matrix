@@ -16,8 +16,6 @@
 #include <set>
 #include <map>
 #include <bitset>
-//#include <unordered_map>
-//#include <unordered_set>
 using namespace std;
 
 typedef long long ll;
@@ -61,7 +59,6 @@ void solve()
     {
         sa(b[i]);
     }
-
     while (q--)
     {
         int r1, r2, c1, c2;
@@ -99,10 +96,8 @@ void solve()
         printf("%d\n", wc);
     }
 }
-
 int main()
 {
     solve();
-    //system("pause");
     return 0;
 }
