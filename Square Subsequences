@@ -12,20 +12,21 @@ int ri()
   scanf("%d", &x);
   return x;
 }
-
 const int N = 200, MOD = 1000000007;
 char a[N+1];
 int s[N][N];
-
 int main()
 {
-  for (int cc = ri(); cc--; ) {
+  for (int cc = ri(); cc--; ) 
+  {
     scanf("%s", a);
     int n = strlen(a), ans = 0;
-    FOR(i, 1, n) {
+    FOR(i, 1, n) 
+    {
       reverse(a, a+i);
       REP(j, i)
-        ROF(k, i, n) {
+        ROF(k, i, n) 
+        {
           s[j][k] = (j ? s[j-1][k] : 0) + (k+1 < n ? s[j][k+1] : 0);
           if (a[j] == a[k])
             ++s[j][k] %= MOD;
