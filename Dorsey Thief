@@ -9,9 +9,7 @@ typedef pair<int,int> pi;
 typedef pair<double,pi> pd;
 
 int n,x;
-
 int ar[5010];
-
 int main()
 {
 	int a,b;
@@ -40,6 +38,5 @@ int main()
 	}
 	if (ar[x] == -1) printf("Got caught!\n");
     else cout<<ar[x];
- 
 	return 0;
 }
