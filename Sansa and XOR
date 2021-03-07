@@ -17,7 +17,9 @@ int main()
 			cin >> num;
 			long long times = (long long)(i + 1) * (n - i);
 			if (times % 2 == 1)
+			{
 				ans ^= num;
+			}
 		}
 		cout << ans << endl;
 	}
