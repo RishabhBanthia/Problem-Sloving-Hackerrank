@@ -24,15 +24,13 @@ long long int power(long long int n, long long int k)
     result=(result*result);
     result=result%MOD;
   }
-
   if(k-pow!=0)
   result=result*power(n, k-pow);
   result=result%MOD;
-
   return result;
 }
-
-int main() {
+int main() 
+{
   int t;
   cin>>t;
   while(t--)
