@@ -10,11 +10,9 @@ vector<lli> v;
 lli n,m;
 map<lli,lli > dp;
 lli solve(lli val)
- {
-  // cout<<val<<" "<<count<<endl;
-  
+ {  
   if(dp[val])
-   {  
+  {  
    return dp[val];
   }
   else
@@ -27,13 +25,11 @@ lli solve(lli val)
        ans=max(ans,solve(v[i])*(val/v[i])+1);
       }  
             else if(v[i]>val) break;
-      
-    }
+     }
     dp[val]=ans;
     return ans;
   }
  }
-
 int main()
 {
   int q;
